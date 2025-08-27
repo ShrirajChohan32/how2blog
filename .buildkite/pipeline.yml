@@ -2,16 +2,19 @@ steps:
   - label: "Install AWS CDK"
     commands:
       - npm install -g aws-cdk
+      - export PATH="$(npm bin -g):$PATH"
 
   - label: "Show CDK Diff"
     commands:
       - pip install -r requirements.txt
+      - export PATH="$(npm bin -g):$PATH"
       - cdk diff
 
   - block: "Approve CDK Deploy?"
 
   - label: "Deploy CDK Stack"
     commands:
+      - export PATH="$(npm bin -g):$PATH"
       - cdk deploy --require-approval never
 
   - label: "Sync Static Files to S3"
