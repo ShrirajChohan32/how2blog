@@ -4,6 +4,11 @@ steps:
       - npm install -g aws-cdk
       - export PATH="$(npm bin -g):$PATH"
 
+steps:
+  - label: "Install AWS CDK"
+    commands:
+      - npm install -g aws-cdk
+
   - label: "Show CDK Diff"
     commands:
       - pip install -r requirements.txt
