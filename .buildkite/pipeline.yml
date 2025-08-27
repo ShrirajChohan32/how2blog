@@ -1,20 +1,4 @@
 steps:
-  - label: "Install Node.js and AWS CDK"
+  - label: "Echo Test"
     commands:
-      - which node || curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
-      - npm install -g aws-cdk
-
-  - label: "Show CDK Diff"
-    commands:
-      - pip install -r requirements.txt
-      - $(npm bin -g)/cdk diff
-
-  - block: "Approve CDK Deploy?"
-
-  - label: "Deploy CDK Stack"
-    commands:
-      - $(npm bin -g)/cdk deploy --require-approval never
-
-  - label: "Sync Static Files to S3"
-    commands:
-      - aws s3 cp blog/site s3://www.shrirajchohan.com --recursive
+      - echo "Hello Buildkite"
