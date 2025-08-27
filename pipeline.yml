@@ -1,0 +1,15 @@
+steps:
+  - label: "Show CDK Diff"
+    commands:
+      - pip install -r requirements.txt
+      - cdk diff
+
+  - block: "Approve CDK Deploy?"
+
+  - label: "Deploy CDK Stack"
+    commands:
+      - cdk deploy --require-approval never
+
+  - label: "Sync Static Files to S3"
+    commands:
+      - aws s3 cp blog/site s3://www.shrirajchohan.com --recursive
