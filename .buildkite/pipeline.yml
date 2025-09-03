@@ -7,6 +7,8 @@ steps:
   - label: "Show CDK Diff"
     commands:
       - pip install -r requirements.txt
+      - echo "About to run CDK diff"
+      - env | grep -i unknown || echo "No unknown env vars"
       - $(npm bin -g)/cdk diff
 
   - block: "Approve CDK Deploy?"
