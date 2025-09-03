@@ -3,6 +3,11 @@ steps:
     commands:
       - which node || curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
       - npm install -g aws-cdk
+      - echo "Node version:" && node --version
+      - echo "NPM version:" && npm --version
+      - echo "NPM global prefix:" && npm prefix -g
+      - echo "CDK location:" && which cdk || echo "CDK not found in PATH"
+      - ls -la "$(npm prefix -g)/bin/" | grep cdk || echo "CDK not in npm bin"
 
   - label: "Show CDK Diff"
     commands:
