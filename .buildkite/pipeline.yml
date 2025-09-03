@@ -7,14 +7,13 @@ steps:
   - label: "Show CDK Diff"
     commands:
       - pip install -r requirements.txt
-      - set -x
-      - $(npm bin -g)/cdk diff
+      - "$(npm prefix -g)/bin/cdk diff"
 
   - block: "Approve CDK Deploy?"
 
   - label: "Deploy CDK Stack"
     commands:
-      - $(npm bin -g)/cdk deploy --require-approval never
+      - "$(npm prefix -g)/bin/cdk deploy --require-approval never"
 
   - label: "Sync Static Files to S3"
     commands:
